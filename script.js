@@ -20,7 +20,7 @@ let totalCount = document.getElementById('total');
 let interviewCount = document.getElementById('interview')
 let rejectedCount = document.getElementById('rejected')
 
-// function count
+// function count all card length
 function countAll() {
     totalCount.innerText = allCardSection.children.length;
     interviewCount.innerText = interviewList.length;
@@ -32,7 +32,7 @@ countAll()
 
 let currentCount = countAll() ;
 
-// Toggle Style
+// Toggle Style important
 
 function toggleStyle(id) {
 
@@ -183,7 +183,7 @@ mainContainer.addEventListener('click', function (event) {
 // Filter card dending 'filterSection'
 const filterSection = document.getElementById('filter-section');
 
-// interview render function
+
 
 function renderInterview() {
     filterSection.innerHTML = '';
@@ -241,11 +241,10 @@ function renderInterview() {
 
 }
 
-// renderrejected render function
 
 function renderrejected() {
     filterSection.innerHTML = '';
-    // empty Message hide Show
+    // empty Message hide Show control
 
      if (rejectedList.length === 0) {
         emptyMessage.classList.remove('hidden');
