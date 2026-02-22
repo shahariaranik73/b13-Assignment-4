@@ -10,8 +10,9 @@
 
 2. How do you create and insert a new element into the DOM?
 
-## Ans:To create-> let div = document.createElement('div');
-    if we put Text inside it
+## Ans:To create-> 
+let div = document.createElement('div');
+    <!-- if we put Text inside it -->
         div.innerHTML = " Hey Developers "
         textSection.appendChild(div);
 
@@ -29,5 +30,6 @@
 
 ### 5. What is the difference between preventDefault() and stopPropagation() methods?
 
-## Ans:preventDefault() ; Which naturally stops working 
-stopPropagation() ;This does not allow the event to go above (to the parent element).
+## Ans:
+preventDefault() ; Which naturally stops working 
+stopPropagation() ; This does not allow the event to go above (to the parent element).
