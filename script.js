@@ -58,8 +58,9 @@ function toggleStyle(id) {
     if (id === 'all-filter-btn') {
         allCardSection.classList.remove('hidden');
         filterSection.classList.add('hidden');
+        emptyMessage.classList.add('hidden');
     }
-
+    // empty messages
 
     else if (id == 'interview-filter-btn') {
         allCardSection.classList.add('hidden');
@@ -187,6 +188,15 @@ const filterSection = document.getElementById('filter-section');
 function renderInterview() {
     filterSection.innerHTML = '';
 
+    // empty message Hide/Show
+
+    if (interviewList.length === 0) {
+        emptyMessage.classList.remove('hidden');
+        return;
+    } else {
+        emptyMessage.classList.add('hidden');
+    }
+
     for (let interview of interviewList) {
         let div = document.createElement('div');
         div.className = 'bg-white flex justify-between rounded-md shadow-sm m-4'
@@ -235,6 +245,14 @@ function renderInterview() {
 
 function renderrejected() {
     filterSection.innerHTML = '';
+    // empty Message hide Show
+
+     if (rejectedList.length === 0) {
+        emptyMessage.classList.remove('hidden');
+        return;
+    } else {
+        emptyMessage.classList.add('hidden');
+    }
 
     for (let interview of rejectedList) {
         let div = document.createElement('div');
