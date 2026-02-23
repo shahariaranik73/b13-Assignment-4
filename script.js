@@ -30,7 +30,7 @@ function countAll() {
 
 countAll()
 
-let currentCount = countAll() ;
+let currentCount = countAll();
 
 // Toggle Style important
 
@@ -51,7 +51,7 @@ function toggleStyle(id) {
     const selecteted = document.getElementById(id);
 
     selecteted.classList.remove('text-black')
-    selecteted.classList.add('opacity-100', 'bg-blue-500')
+    selecteted.classList.add('bg-blue-500','text-black-500')
     currentStatus = id;
 
     // sob card ke button e caple je jar jaygay cole jabe 
@@ -95,10 +95,13 @@ mainContainer.addEventListener('click', function (event) {
         const job1 = parentNode.querySelector('.job1').innerText;
         const jobTime = parentNode.querySelector('.jobTime').innerText;
         const salary = parentNode.querySelector('.salary').innerText;
-        const status = parentNode.querySelector('.status').innerText;
         const notes = parentNode.querySelector('.notes').innerText;
         // parentNode.querySelector('.status').innerText = 'Interview'
         parentNode.querySelector('.status').innerText = 'Interview'
+        
+        const status = parentNode.querySelector('.status')
+        status.classList.remove('bg-[#EEF4FF]', 'bg-red-500');
+        status.classList.add('bg-green-400', 'text-black');
 
         const cardInfo = {
             company,
@@ -120,10 +123,10 @@ mainContainer.addEventListener('click', function (event) {
         rejectedList = rejectedList.filter(item => item.company != cardInfo.company);
         countAll()
 
-        if(currentStatus=='rejected-filter-btn'){
+        if (currentStatus == 'rejected-filter-btn') {
             renderrejected()
         }
-            // renderInterview()
+        // renderInterview()
 
         // console.log(interviewList)
 
@@ -142,9 +145,12 @@ mainContainer.addEventListener('click', function (event) {
         const job1 = parentNode.querySelector('.job1').innerText;
         const jobTime = parentNode.querySelector('.jobTime').innerText;
         const salary = parentNode.querySelector('.salary').innerText;
-        const status = parentNode.querySelector('.status').innerText;
         const notes = parentNode.querySelector('.notes').innerText;
         parentNode.querySelector('.status').innerText = 'Rejected'
+        
+        const status = parentNode.querySelector('.status')
+        status.classList.remove('bg-[#EEF4FF]', 'bg-green-500');
+        status.classList.add('text-black', 'bg-red-400');
 
         const cardInfo = {
             company,
@@ -213,7 +219,7 @@ function renderInterview() {
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md bg-[#EEF4FF]">${interview.status}</p>
+                            class="status font-semibold border w-[130px] h-10 flex items-center justify-center rounded-md bg-green-300 text-black">${interview.status}</p>
                         <p class="notes font-medium opacity-60">${interview.notes} </p>
                     </div>
 
@@ -246,7 +252,7 @@ function renderrejected() {
     filterSection.innerHTML = '';
     // empty Message hide Show control
 
-     if (rejectedList.length === 0) {
+    if (rejectedList.length === 0) {
         emptyMessage.classList.remove('hidden');
         return;
     } else {
@@ -269,7 +275,7 @@ function renderrejected() {
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md bg-[#EEF4FF]">${interview.status}</p>
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-red-300 border-2 border-red-500">${interview.status}</p>
                         <p class="notes font-medium opacity-60">${interview.notes} </p>
                     </div>
 
@@ -303,7 +309,7 @@ function renderrejected() {
 //     if (event.target.classList.contains('btn-delete')){
 //         console.log("delete-btn Cliked")
 //     }
-    
+
 // }
 
 mainContainer.addEventListener('click', function (event) {
