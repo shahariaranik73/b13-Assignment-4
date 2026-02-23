@@ -14,7 +14,7 @@
                     let div = document.createElement('div');
     if we put Text inside it.
 
-        div.innerHTML = " Hey Developers "
+        div.innerHTML = ` <h3 class=" font-semibold text-1xl mt-2 ml-4 mb-3">Available Jobs</h3> `
         textSection.appendChild(div);
 
 
