@@ -32,6 +32,7 @@ countAll()
 
 let currentCount = countAll();
 
+
 // Toggle Style important
 
 function toggleStyle(id) {
@@ -104,7 +105,7 @@ mainContainer.addEventListener('click', function (event) {
 
         // if btn cliked 
         interviewBtn.classList.add('text-green-900', 'bg-green-300')
-        
+
         // if btn cliked
         rejectedBtn.classList.remove('text-red-900', 'bg-red-300')
 
@@ -173,7 +174,7 @@ mainContainer.addEventListener('click', function (event) {
 
         // if rejected btn cliked
         rejectedBtn.classList.add('text-red-900', 'bg-red-300')
-     
+
 
         const cardInfo = {
             company,
@@ -228,7 +229,7 @@ function renderInterview() {
 
     for (let interview of interviewList) {
         let div = document.createElement('div');
-        div.className = 'bg-white flex justify-between rounded-md shadow-sm m-4'
+        div.className = 'bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300'
         div.innerHTML = `
         <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">${interview.company} </h4>
@@ -250,18 +251,19 @@ function renderInterview() {
 
                     <!-- button part -->
                     <div class="flex gap-5">
-                        <button class="interview-btn text-green-900 bg-green-400 font-medium border-green-500 border-2 rounded-md px-4 py-2">
+                        <button
+                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
                             Interview
                         </button>
 
-                        <button class="rejected-btn  border-red-500 border-2 rounded-md px-4 py-2">
+                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
                             Rejected
                         </button>
                     </div>
                 </div>
                     <!-- delet btn -->
                     <div>
-                        <button class="btn-delete px-4 py-2"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn-delete px-4 py-2 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
                     </div>
         
         `
@@ -286,7 +288,7 @@ function renderrejected() {
 
         let div = document.createElement('div');
 
-        div.className = 'bg-white flex justify-between rounded-md shadow-sm m-4'
+        div.className = 'bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300'
         div.innerHTML = `
         <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">${interview.company} </h4>
@@ -308,18 +310,19 @@ function renderrejected() {
 
                     <!-- button part -->
                     <div class="flex gap-5">
-                        <button class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2">
+                        <button
+                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
                             Interview
                         </button>
 
-                        <button class="rejected-btn border-red-500 bg-red-400 border-2 rounded-md px-4 py-2">
+                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
                             Rejected
                         </button>
                     </div>
                 </div>
                     <!-- delet btn -->
                     <div>
-                        <button class="btn-delete px-4 py-2"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn-delete px-4 py-2 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
                     </div>
         
         `
