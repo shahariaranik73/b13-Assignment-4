@@ -51,7 +51,7 @@ function toggleStyle(id) {
     const selecteted = document.getElementById(id);
 
     selecteted.classList.remove('text-black')
-    selecteted.classList.add('bg-blue-500','text-black-500')
+    selecteted.classList.add('bg-blue-500', 'text-black-500')
     currentStatus = id;
 
     // sob card ke button e caple je jar jaygay cole jabe 
@@ -89,6 +89,9 @@ mainContainer.addEventListener('click', function (event) {
     if (event.target.classList.contains('interview-btn')) {
         const parentNode = event.target.parentNode.parentNode;
         // console.log(parentNode)
+        // to buttons get
+        const rejectedBtn = parentNode.querySelector('.rejected-btn');
+        const interviewBtn = parentNode.querySelector('.interview-btn');
 
         const company = parentNode.querySelector('.company').innerText;
         const position = parentNode.querySelector('.position').innerText;
@@ -98,9 +101,15 @@ mainContainer.addEventListener('click', function (event) {
         const notes = parentNode.querySelector('.notes').innerText;
         // parentNode.querySelector('.status').innerText = 'Interview'
         parentNode.querySelector('.status').innerText = 'Interview'
+
+        // if btn cliked 
+        interviewBtn.classList.add('text-green-900', 'bg-green-300')
         
+        // if btn cliked
+        rejectedBtn.classList.remove('text-red-900', 'bg-red-300')
+
         const status = parentNode.querySelector('.status')
-        status.classList.remove('bg-[#EEF4FF]', 'bg-red-500');
+        status.classList.remove('text-black', 'bg-red-400');
         status.classList.add('bg-green-400', 'text-black');
 
         const cardInfo = {
@@ -139,6 +148,9 @@ mainContainer.addEventListener('click', function (event) {
     else if (event.target.classList.contains('rejected-btn')) {
         const parentNode = event.target.parentNode.parentNode;
         // console.log(parentNode)
+        // buttons get
+        const rejectedBtn = parentNode.querySelector('.rejected-btn');
+        const interviewBtn = parentNode.querySelector('.interview-btn');
 
         const company = parentNode.querySelector('.company').innerText;
         const position = parentNode.querySelector('.position').innerText;
@@ -147,10 +159,18 @@ mainContainer.addEventListener('click', function (event) {
         const salary = parentNode.querySelector('.salary').innerText;
         const notes = parentNode.querySelector('.notes').innerText;
         parentNode.querySelector('.status').innerText = 'Rejected'
-        
+
         const status = parentNode.querySelector('.status')
-        status.classList.remove('bg-[#EEF4FF]', 'bg-green-500');
+        status.classList.remove('bg-green-400', 'text-black');
         status.classList.add('text-black', 'bg-red-400');
+
+        // if rejected btn clicked
+        interviewBtn.classList.remove('text-green-900', 'bg-green-300')
+
+        // if rejected btn cliked
+        rejectedBtn.classList.add('text-red-900', 'bg-red-300')
+        // interviewBtn.classList.add('bg-green-400', 'text-black');
+        // rejectedBtn.classList.remove('text-black', 'bg-red-400');
 
         const cardInfo = {
             company,
