@@ -20,11 +20,26 @@ let totalCount = document.getElementById('total');
 let interviewCount = document.getElementById('interview')
 let rejectedCount = document.getElementById('rejected')
 
+// secont show option
+const availableCount = document.getElementById('availableCount');
+
 // function count all card length
 function countAll() {
+
     totalCount.innerText = allCardSection.children.length;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
+
+    if (currentStatus === 'all' || currentStatus === 'all-filter-btn') {
+        availableCount.innerText = allCardSection.children.length;
+    }
+    else
+        if (currentStatus == 'interview-filter-btn') {
+            availableCount.innerText = interviewList.length;
+        }
+        else if (currentStatus == 'rejected-filter-btn') {
+            availableCount.innerText = rejectedList.length
+        }
 
 }
 
@@ -74,6 +89,7 @@ function toggleStyle(id) {
         renderrejected()
     }
 
+    countAll()
 
 }
 
@@ -88,7 +104,7 @@ const mainContainer = document.querySelector('main');
 mainContainer.addEventListener('click', function (event) {
     // console.log(event.target.classList.contains('interview-btn'))
     if (event.target.classList.contains('interview-btn')) {
-        const parentNode = event.target.parentNode.parentNode;
+        const parentNode = event.target.closest('.cards');
         // console.log(parentNode)
         // to buttons get
         const rejectedBtn = parentNode.querySelector('.rejected-btn');
@@ -101,25 +117,33 @@ mainContainer.addEventListener('click', function (event) {
         const salary = parentNode.querySelector('.salary').innerText;
         const notes = parentNode.querySelector('.notes').innerText;
         // parentNode.querySelector('.status').innerText = 'Interview'
-        parentNode.querySelector('.status').innerText = 'Interview'
+        parentNode.querySelector('.status').innerText = 'INTERVIEW'
 
         // if btn cliked 
-        interviewBtn.classList.add('text-green-900', 'bg-green-300')
+        interviewBtn.classList.add('border-3', 'border-green-600')
 
-        // if btn cliked
-        rejectedBtn.classList.remove('text-red-900', 'bg-red-300')
+        // // if btn cliked
+        rejectedBtn.classList.remove('border-3', 'border-red-600')
 
         const status = parentNode.querySelector('.status')
-        status.classList.remove('text-black', 'bg-red-400');
-        status.classList.add('bg-green-400', 'text-black');
 
+        status.classList.remove('border-3', 'border-red-600');
+        status.classList.add('border-3', 'border-green-600',);
+
+        parentNode.classList.remove('border-l-6', 'border-red-600')
+
+        parentNode.classList.add('border-l-6', 'border-green-600')
+
+
+
+        // status.classList.remove('border-2', 'border-red-500', 'text-black');
         const cardInfo = {
             company,
             position,
             job1,
             jobTime,
             salary,
-            status: 'Interview',
+            status: 'INTERVIEW',
             notes,
 
         }
@@ -147,7 +171,7 @@ mainContainer.addEventListener('click', function (event) {
     // Rejected button
 
     else if (event.target.classList.contains('rejected-btn')) {
-        const parentNode = event.target.parentNode.parentNode;
+        const parentNode = event.target.closest('.cards');
         // const parentNode = event.target.closest('.card-main-div') || event.target.closest('.bg-white');
 
         // console.log(parentNode)
@@ -166,14 +190,21 @@ mainContainer.addEventListener('click', function (event) {
 
         const status = parentNode.querySelector('.status')
 
-        status.classList.remove('bg-green-400', 'text-black');
-        status.classList.add('text-black', 'bg-red-400');
+        // status.classList.remove('border-2', 'border-green-500', 'text-black');
 
-        // if rejected btn clicked
-        interviewBtn.classList.remove('text-green-900', 'bg-green-300')
+        status.classList.remove('border-3', 'border-green-600',);
+        status.classList.add('border-3', 'border-red-600');
 
-        // if rejected btn cliked
-        rejectedBtn.classList.add('text-red-900', 'bg-red-300')
+        // // if rejected btn clicked
+        interviewBtn.classList.remove('border-3', 'border-green-600')
+
+        // // if rejected btn cliked
+        rejectedBtn.classList.add('border-3', 'border-red-600')
+
+        parentNode.classList.remove('border-l-6', 'border-green-600')
+
+        parentNode.classList.add('border-l-6', 'border-red-600')
+
 
 
         const cardInfo = {
@@ -229,7 +260,7 @@ function renderInterview() {
 
     for (let interview of interviewList) {
         let div = document.createElement('div');
-        div.className = 'bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300'
+        div.className = 'cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300'
         div.innerHTML = `
         <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">${interview.company} </h4>
@@ -252,12 +283,12 @@ function renderInterview() {
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium border bg-green-200 rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -288,7 +319,7 @@ function renderrejected() {
 
         let div = document.createElement('div');
 
-        div.className = 'bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300'
+        div.className = 'cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300'
         div.innerHTML = `
         <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">${interview.company} </h4>
@@ -302,7 +333,7 @@ function renderrejected() {
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-red-400 border-2 border-red-500">${interview.status}</p>
+                        class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-red-400 border-2 border-red-500">${interview.status}</p>
                         <p class="notes font-medium opacity-60">${interview.notes} </p>
                     </div>
 
@@ -311,12 +342,12 @@ function renderrejected() {
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-red-300 border font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -332,23 +363,13 @@ function renderrejected() {
 }
 
 
-// card delete 
-// mainContainer.addEventListener('click',function (event)) {
-//     if (event.target.classList.contains('btn-delete')){
-//         console.log("delete-btn Cliked")
-//     }
-
-// }
 
 mainContainer.addEventListener('click', function (event) {
-    // console.log("delete-btn Clicked");
-    // const deleteBtn = event.target.closest('.btn-delete');
 
-    // const Delet =event.target.closest('.btn-delete');
 
     if (event.target.closest('.btn-delete')) {
 
-        const parentNode = event.target.parentNode.parentNode.parentNode;
+        const parentNode = event.target.closest('.cards');
         // console.log("delete-btn Clicked",parentNode);
 
         parentNode.remove();

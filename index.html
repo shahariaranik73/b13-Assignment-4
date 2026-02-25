@@ -56,7 +56,11 @@
     <!-- job card section -->
 
     <main class="w-[80%] mx-auto pl-3 pt-2">
-         <h3 class=" font-semibold text-1xl mt-2 ml-4 mb-3">Available Jobs</h3>
+         <div class="flex justify-between items-center">
+            <h3 class=" font-semibold text-1xl mt-2 ml-4 mb-3">Available Jobs</h3>
+            <h3 id="availableCount" class="font-medium pr-12">0</h3>
+         </div>
+
         <!-- Filter button -->
         <div class="ml-4">
             <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn"
@@ -74,14 +78,16 @@
         <!-- challang Part -->
 
         <div id="emptyMessage"
-            class="hidden flex flex-col items-center justify-center min-h-[300px] border border-gray-700 rounded-xl text-center mt-6 bg-[#475471]">
-            <h2 class="text-lg font-semibold text-white">No jobs available</h2>
+            class="hidden flex flex-col items-center justify-center min-h-[300px] border border-gray-700 rounded-xl text-center mt-6 ">
+            <img class="mx-auto w-40 " src="images/background.png" alt="No jobs available">
+            <h2 class="text-lg font-semibold text-black">No jobs available</h2>
             <p class="text-gray-400 text-sm mt-1">Check back soon for new job opportunities</p>
         </div>
 
         <section id="allCards">
+
             <!-- card 1 -->
-            <div class="card-main-div bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
                 <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">Mobile First Corp</h4>
                     <p class="position text-[15px] font-semibold opacity-60 ">React Native Developer</p>
@@ -94,7 +100,7 @@
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md bg-[#b9ccf1] text-black">
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md bg-[#b9ccf1] text-black">
                             Not Applied
                         </p>
                         <p class="notes font-medium opacity-60">Build cross-platform mobile applications using React
@@ -106,12 +112,12 @@
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -122,7 +128,7 @@
             </div>
 
             <!-- card 2 -->
-            <div class="bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
                 <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">WebFlow Agency</h4>
                     <p class="position text-[15px] font-semibold opacity-60 ">Web Designer & Developer</p>
@@ -136,7 +142,7 @@
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
                             Not Applied
                         </p>
                         <p class="notes font-medium opacity-60">Create stunning web experiences for high-profile
@@ -148,12 +154,12 @@
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -164,7 +170,7 @@
             </div>
 
             <!-- card 3 -->
-            <div class="bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
                 <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">DataViz Solutions</h4>
                     <p class="position text-[15px] font-semibold opacity-60 ">Data Visualization Specialist</p>
@@ -177,7 +183,7 @@
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
                             Not Applied
                         </p>
                         <p class="notes font-medium opacity-60">Transform complex data into compelling visualizations.
@@ -190,12 +196,12 @@
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -206,7 +212,7 @@
             </div>
 
             <!-- card 4 -->
-            <div class="bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
                 <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">CloudFirst Inc</h4>
                     <p class="position text-[15px] font-semibold opacity-60 ">Backend Developer</p>
@@ -219,7 +225,7 @@
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
                             Not Applied
                         </p>
                         <p class="notes font-medium opacity-60">Design and maintain scalable backend systems using
@@ -231,12 +237,12 @@
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -247,7 +253,7 @@
             </div>
 
             <!-- card 5 -->
-            <div class="bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
                 <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">Innovation Labs</h4>
                     <p class="position text-[15px] font-semibold opacity-60 ">UI/UX Engineer</p>
@@ -260,7 +266,7 @@
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
                             Not Applied
                         </p>
                         <p class="notes font-medium opacity-60">Build cross-platform mobile applications using React
@@ -274,12 +280,12 @@
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -290,7 +296,7 @@
             </div>
 
             <!-- card 6 -->
-            <div class="bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
                 <div class="space-y-2  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">MegaCorp Solutions</h4>
                     <p class="position text-[15px] font-semibold opacity-60 ">JavaScript Developer</p>
@@ -303,7 +309,7 @@
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
                             Not Applied
                         </p>
                         <p class="notes font-medium opacity-60">Build enterprise applications with JavaScript and modern
@@ -318,12 +324,12 @@
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -334,7 +340,7 @@
             </div>
 
             <!-- card 7 -->
-            <div class="bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
                 <div class="space-y-3  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">StartupXYZ</h4>
                     <p class="position text-[15px] font-semibold opacity-60 ">React Native Developer</p>
@@ -347,7 +353,7 @@
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
                             Not Applied
                         </p>
                         <p class="notes font-medium opacity-60">Join our fast-growing startup and work on our core
@@ -361,12 +367,12 @@
                     <!-- button part -->
                    <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -377,7 +383,7 @@
             </div>
 
             <!-- card 8 -->
-            <div class="bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
                 <div class="space-y-3  p-6 m-3">
                     <h4 class="company font-semibold text-[20px]">TechCorp Industries</h4>
                     <p class="position text-[15px] font-semibold opacity-60 ">Senior Frontend Developer</p>
@@ -390,7 +396,7 @@
 
                     <div class="space-y-4">
                         <p
-                            class="status font-semibold border-none w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
+                            class="status font-semibold w-[130px] h-10 flex items-center justify-center rounded-md text-black bg-[#b6cefa]">
                             Not Applied
                         </p>
                         <p class="notes font-medium opacity-60">We are looking for an experienced Frontend Developer to
@@ -405,12 +411,12 @@
                     <!-- button part -->
                     <div class="flex gap-5">
                         <button
-                            class="interview-btn text-green-500 font-medium border-green-500 border-2 rounded-md px-4 py-2 hover:bg-green-200 hover:scale-105 transition duration-300">
-                            Interview
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
                         </button>
 
-                        <button class="rejected-btn border-red-500 border-2 rounded-md px-4 py-2 hover:bg-red-200 hover:scale-105 transition duration-300">
-                            Rejected
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
                         </button>
                     </div>
                 </div>
@@ -419,6 +425,44 @@
                     <button class="btn-delete px-4 py-2 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </div>
+                 <!-- card 9 -->
+            <div class="cards bg-white flex justify-between rounded-md shadow-sm m-4 hover:scale-[1.01] transition duration-300">
+                <div class="space-y-2 p-6 m-3">
+                    <h4 class="company font-semibold text-[20px]">Teach Wave</h4>
+                    <p class="position text-[15px] font-semibold opacity-60 ">React Native Developer</p>
+
+                    <div class="flex gap-6 opacity-60">
+                        <p class="job1 font-semibold">Remote</p>
+                        <p class="jobTime font-semibold">part-time</p>
+                        <p class="salary font-semibold">$1400,000 - $180,000</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <p
+                            class="status font-semibold  w-[130px] h-10 flex items-center justify-center rounded-md bg-[#c4d4f4] text-black">
+                            Not Applied
+                        </p>
+                        <p class="notes font-medium opacity-60">Design and optimize scalable, high-performance mobile features to <br>deliver seamless user experiences across iOS and Android platforms.
+</p>
+                    </div>
+
+                    <!-- button part -->
+                    <div class="flex gap-5">
+                        <button
+                            class="interview-btn shadow font-medium bg-[#e9eef6] rounded-md px-4 py-2 hover:scale-105 transition duration-300">
+                            INTERVIEW
+                        </button>
+
+                        <button class="rejected-btn shadow bg-[#e9eef6] font-medium rounded-md px-4 py-2  hover:scale-105 transition duration-300">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+                <!-- delet btn -->
+                <div>
+                    <button class="btn-delete px-4 py-2 hover:scale-105 transition duration-300 cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </div>           
 
 
         </section>
